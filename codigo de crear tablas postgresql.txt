@@ -1,0 +1,72 @@
+/*==============================================================*/
+/* DBMS name:      PostgreSQL 7.3 (Deprecated)                  */
+/* Created on:     25/08/2020 13:30:34                          */
+/*==============================================================*/
+
+
+/*==============================================================*/
+/* Table: ALQUILER_LIBRO                                        */
+/*==============================================================*/
+create table ALQUILER_LIBRO (
+IDLIBRO              INT4                 not null,
+IDCLIENTE            INT4                 not null,
+IDSERIELIBRO         VARCHAR(50)          null,
+FECHAALQUILERLIBRO   VARCHAR(20)          null,
+HORAALQUILERLIBRO    VARCHAR(20)          null,
+NOMALQUILERLIBRO     VARCHAR(50)          null,
+FECHADEVOLUCION      VARCHAR(20)          null,
+constraint PK_ALQUILER_LIBRO primary key (IDLIBRO, IDCLIENTE)
+);
+
+
+
+/*==============================================================*/
+/* Table: CLIENTE                                               */
+/*==============================================================*/
+create table CLIENTE (
+IDCLIENTE            INT4                 not null,
+NOMBRECLIENTE        VARCHAR(25)          null,
+APELLIDOCLIENTE      VARCHAR(25)          null,
+CEDCLIENTE           VARCHAR(20)          null,
+CELCLIENTE           VARCHAR(20)          null,
+EMAILCLIENTE         VARCHAR(30)          null,
+DIRECCIONCLIENTE     VARCHAR(50)          null,
+constraint PK_CLIENTE primary key (IDCLIENTE)
+);
+
+
+/*==============================================================*/
+/* Table: GENERO_LIBRO                                          */
+/*==============================================================*/
+create table GENERO_LIBRO (
+IDGENELIBRO          INT4                 not null,
+TIPOGENELIBRO        VARCHAR(30)          null,
+constraint PK_GENERO_LIBRO primary key (IDGENELIBRO)
+);
+
+
+/*==============================================================*/
+/* Table: LIBRO                                                 */
+/*==============================================================*/
+create table LIBRO (
+IDLIBRO              INT4                 not null,
+IDGENELIBRO          INT4                 not null,
+IDCODIGOLIBRO        INT4                 null,
+NOMBRELIBRO          VARCHAR(30)          null,
+EDITORIALLIBRO       VARCHAR(30)          null,
+AUTORLIBRO           VARCHAR(30)          null,
+ANOEDICIONLIBRO      VARCHAR(20)          null,
+PAGINASLIBRO         VARCHAR(50)          null,
+VISITASLIBRO         VARCHAR(50)          null,
+constraint PK_LIBRO primary key (IDLIBRO)
+);
+
+
+
+select * from LIBRO;
+
+select * from ALQUILER_LIBRO;
+
+select * from CLIENTE;
+
+select * from GENERO_LIBRO;
